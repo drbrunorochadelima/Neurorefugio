@@ -29,6 +29,69 @@ registerUserDataSource({
     commentsCollection.replaceAll(commentsCollection.list().filter((c) => c.authorId !== userId)),
 });
 
+const DEMO_AUTHOR = "Comunidade NeuroRefúgio (perfil demonstrativo)";
+
+function seedDemoPosts(): void {
+  const now = new Date().toISOString();
+  postsCollection.seedIfEmpty([
+    {
+      id: "seed-post-1",
+      authorId: "demo-seed",
+      authorDisplayName: DEMO_AUTHOR,
+      categoria: "trabalho-em-saude",
+      titulo: "Como vocês pedem pausas sensoriais no plantão?",
+      corpo:
+        "Este é um exemplo demonstrativo de publicação. Tenho percebido que preciso de pausas mais curtas e frequentes durante plantões longos, mas nem sempre sei como pedir isso sem parecer que estou 'fugindo' do trabalho. Como vocês lidam com isso?",
+      status: "publicado",
+      createdAt: now,
+      updatedAt: now,
+      reactions: {},
+    },
+    {
+      id: "seed-post-2",
+      authorId: "demo-seed",
+      authorDisplayName: DEMO_AUTHOR,
+      categoria: "diagnostico-tardio",
+      titulo: "Diagnóstico depois dos 30: um recomeço de entendimento",
+      corpo:
+        "Publicação demonstrativa. Recebi meu diagnóstico já adulto, depois de anos tentando entender por que certas situações sempre foram tão mais difíceis para mim do que pareciam ser para os outros. Ainda estou processando o que isso significa.",
+      status: "publicado",
+      createdAt: now,
+      updatedAt: now,
+      reactions: {},
+    },
+    {
+      id: "seed-post-3",
+      authorId: "demo-seed",
+      authorDisplayName: DEMO_AUTHOR,
+      categoria: "hiperfocos",
+      titulo: "Hiperfoco em astronomia salvou meu semestre",
+      corpo:
+        "Publicação demonstrativa. Nas semanas mais difíceis, voltar para meu hiperfoco em astronomia foi o que me manteve com alguma sensação de estabilidade. Queria muito saber se isso é comum para outras pessoas também.",
+      status: "publicado",
+      createdAt: now,
+      updatedAt: now,
+      reactions: {},
+    },
+    {
+      id: "seed-post-4",
+      authorId: "demo-seed",
+      authorDisplayName: DEMO_AUTHOR,
+      categoria: "conquistas",
+      titulo: "Consegui pedir uma adaptação e ela foi aceita",
+      corpo:
+        "Publicação demonstrativa. Depois de meses hesitando, pedi para reduzir o volume dos alarmes não críticos no meu setor. Para minha surpresa, o pedido foi aceito. Pequenas mudanças institucionais fazem diferença.",
+      avisoConteudo: undefined,
+      status: "publicado",
+      createdAt: now,
+      updatedAt: now,
+      reactions: {},
+    },
+  ]);
+}
+
+seedDemoPosts();
+
 export function listPublishedPosts(): ForumPost[] {
   return postsCollection
     .list()

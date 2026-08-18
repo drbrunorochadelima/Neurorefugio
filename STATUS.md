@@ -232,4 +232,40 @@ Plantão: completar os 9 eventos e verificar o resumo com gráfico, linha do tem
 
 ---
 
+## 2026-08-18 — Fase 7: Hiperfocos e Comunidade
+
+**Pronto:**
+- `/hiperfocos`: cadastro, busca por título/categoria, favoritos, privacidade por item; detalhe em
+  `/hiperfocos/[id]` com coleção de links e linha do tempo de descobertas. Link honesto para a
+  categoria "Hiperfocos" da Comunidade no lugar de um sistema de matching não implementado.
+- `/comunidade`: fórum piloto fechado (`COMMUNITY_PILOT_CLOSED = true`), categorias (13), busca,
+  aviso de piloto fechado, publicações demonstrativas seedadas e claramente identificadas
+  ("perfil demonstrativo"). Fluxo real: rascunho → revisão → publicado (`/comunidade/nova`
+  envia para revisão; sem fila de aprovação nesta fase — ver limitação abaixo). Reações
+  acolhedoras, comentários, denúncia e bloqueio de usuário implementados e funcionais em
+  `/comunidade/[id]`.
+- Corrigido um problema real de hidratação SSR/cliente descoberto durante o teste: páginas públicas
+  que leem dados do localStorage (feed da comunidade, detalhe de publicação) agora carregam os
+  dados após a montagem, evitando divergência entre o HTML do servidor e o do navegador.
+
+**Falta:**
+- Fila de moderação para aprovar publicações "em revisão" — chega no painel administrativo
+  (fase 12). Até lá, publicações enviadas por usuários reais ficam pendentes (visíveis apenas para
+  o próprio autor como "aguardando revisão"); os posts públicos visíveis hoje são os
+  demonstrativos pré-publicados.
+- Silenciamento de palavras específicas (apenas bloqueio de usuário está implementado).
+- Apoio automatizado revisável (não implementado nesta fase).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright (feed carrega sem erro de hidratação, publicação demonstrativa abre
+corretamente). Testar manualmente: criar hiperfoco com links/timeline, enviar uma publicação
+(ficará como "aguardando revisão" até a fila de moderação existir), reagir/comentar/denunciar/
+bloquear em uma publicação demonstrativa.
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
