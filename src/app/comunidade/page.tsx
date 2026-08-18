@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth/context";
 import { listPublishedPosts, listMyPosts, COMMUNITY_PILOT_CLOSED } from "@/lib/services/community";
 import { FORUM_CATEGORIES, FORUM_CATEGORY_LABELS, type ForumCategory } from "@/lib/schemas/community";
+import { categoryColor } from "@/lib/category-colors";
 
 function ComunidadeContent() {
   const { user } = useAuth();
@@ -106,9 +107,12 @@ function ComunidadeContent() {
               href={`/comunidade/${post.id}`}
               className="block rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-5 hover:border-[var(--nr-accent-primary)]"
             >
-              <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
+              <span
+                className="inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide"
+                style={{ background: categoryColor(post.categoria).bg, color: categoryColor(post.categoria).text }}
+              >
                 {FORUM_CATEGORY_LABELS[post.categoria]}
-              </p>
+              </span>
               <h2 className="mt-1 font-semibold text-[var(--nr-text)]">{post.titulo}</h2>
               {post.avisoConteudo && (
                 <p className="mt-1 text-xs text-[var(--nr-danger)]">Aviso de conteúdo: {post.avisoConteudo}</p>

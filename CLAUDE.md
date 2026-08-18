@@ -33,8 +33,12 @@ neste repositório — humano ou de agente de IA — deve respeitar estas regras
    (ou documentar explicitamente que não foi possível testar visualmente).
 8. **Autismo não é doença**: nunca tratar autismo como patologia, tragédia ou falha moral. Nunca
    generalizar a experiência autoetnográfica do autor como representativa de todas as pessoas
-   autistas. Evitar estereótipos, símbolo de quebra-cabeça, cores neon, elementos piscantes e excesso
-   de estímulo visual.
+   autistas. Evitar estereótipos e símbolo de quebra-cabeça. **Elementos piscantes/estroboscópicos
+   continuam proibidos sem exceção** (risco de convulsão fotossensível — questão de segurança, não
+   estética). A restrição a cores neon e ao espectro estritamente calmo foi revista em 2026-08-18 a
+   pedido explícito do autor do projeto (ver decisão abaixo) — a paleta agora é vibrante por padrão,
+   com o controle de saturação/baixo estímulo do Passaporte Sensorial (`/configuracoes`) como a via
+   de acessibilidade para quem precisar de menos estímulo visual.
 9. **Sem push/deploy não autorizado**: nunca publicar, contratar serviços pagos ou implantar em
    produção sem autorização expressa do usuário na conversa.
 10. **Sem decisões técnicas desnecessárias**: resolver com boas práticas quando possível; só perguntar

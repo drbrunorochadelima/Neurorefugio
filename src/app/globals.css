@@ -3,8 +3,13 @@
 /*
  * NeuroRefúgio — tokens de design
  *
- * Paleta: verde-sálvia, azul-petróleo, lavanda suave, areia, branco quente,
- * cinza-esverdeado, grafite. Sem neon, sem gradientes excessivos.
+ * Paleta vibrante (revisão de 2026-08-18, a pedido explícito do autor do
+ * projeto — ver CLAUDE.md, regra 8): azul, esmeralda, violeta, âmbar e rosa
+ * saturados, sobre fundo claro para manter legibilidade. Elementos
+ * piscantes/estroboscópicos continuam proibidos (segurança). Quem precisar
+ * de menos estímulo visual usa o controle de saturação e o modo de baixo
+ * estímulo do Passaporte Sensorial (/configuracoes) — o filtro de saturação
+ * já aplicado globalmente (linha abaixo) funciona sobre esta paleta.
  *
  * Temas (data-theme="light|dark") e modo de baixo estímulo (data-stimulus="low")
  * são aplicados via atributos no elemento <html> pelo SensoryProvider
@@ -14,60 +19,78 @@
  */
 
 :root {
-  /* Paleta base */
-  --nr-sage-50: #f2f6f2;
-  --nr-sage-100: #dfe9e0;
-  --nr-sage-300: #a9c2ac;
-  --nr-sage-500: #7c9885;
-  --nr-sage-700: #56715e;
-  --nr-sage-900: #33453a;
+  /* Paleta base — tons vívidos, cada família com uma variante "-text" mais
+     escura (>=4.5:1 sobre fundo claro) para uso como texto, e uma variante
+     mais viva para fundos/bordas/gráficos (>=3:1). */
+  --nr-blue-50: #eff6ff;
+  --nr-blue-100: #dbeafe;
+  --nr-blue-300: #93c5fd;
+  --nr-blue-500: #3b82f6;
+  --nr-blue-600: #2563eb;
+  --nr-blue-700: #1d4ed8;
+  --nr-blue-900: #1e3a8a;
 
-  --nr-petrol-50: #eef4f5;
-  --nr-petrol-100: #cfe0e3;
-  --nr-petrol-300: #6f9aa3;
-  --nr-petrol-500: #2c5b66;
-  --nr-petrol-700: #1e414a;
-  --nr-petrol-900: #12282e;
+  --nr-emerald-50: #ecfdf5;
+  --nr-emerald-100: #d1fae5;
+  --nr-emerald-300: #6ee7b7;
+  --nr-emerald-500: #10b981;
+  --nr-emerald-600: #059669;
+  --nr-emerald-700: #047857;
+  --nr-emerald-900: #064e3b;
 
-  --nr-lavender-50: #f4f2f9;
-  --nr-lavender-100: #e2ddf0;
-  --nr-lavender-300: #bcb2dc;
-  --nr-lavender-500: #948bc0;
-  --nr-lavender-700: #6c6494;
+  --nr-violet-50: #f5f3ff;
+  --nr-violet-100: #ede9fe;
+  --nr-violet-300: #c4b5fd;
+  --nr-violet-500: #8b5cf6;
+  --nr-violet-600: #7c3aed;
+  --nr-violet-700: #6d28d9;
 
-  --nr-sand-50: #faf7f0;
-  --nr-sand-100: #f0e8d6;
-  --nr-sand-300: #ddcca4;
+  --nr-amber-50: #fffbeb;
+  --nr-amber-100: #fef3c7;
+  --nr-amber-300: #fcd34d;
+  --nr-amber-500: #f59e0b;
+  --nr-amber-600: #d97706;
+  --nr-amber-700: #b45309;
 
-  --nr-warm-white: #faf8f4;
-  --nr-graphite-900: #2b2f2e;
-  --nr-graphite-700: #4a504e;
-  --nr-graphite-500: #6c726f;
-  --nr-graphite-300: #a3a9a6;
+  --nr-rose-50: #fff1f2;
+  --nr-rose-100: #ffe4e6;
+  --nr-rose-300: #fda4af;
+  --nr-rose-500: #f43f5e;
+  --nr-rose-600: #e11d48;
+  --nr-rose-700: #be123c;
 
-  --nr-red-600: #9c3b3b;
-  --nr-amber-600: #93691f;
-  --nr-green-700: #3f6b4a;
+  --nr-warm-white: #fdfcfb;
+  --nr-graphite-900: #201f2b;
+  --nr-graphite-700: #46435a;
+  --nr-graphite-500: #6c6883;
+  --nr-graphite-300: #a3a0b8;
+
+  --nr-red-600: #dc2626;
+  --nr-green-700: var(--nr-emerald-700);
 
   /* Tokens semânticos — tema claro (padrão) */
   --nr-bg: var(--nr-warm-white);
   --nr-surface: #ffffff;
-  --nr-surface-alt: var(--nr-sage-50);
-  --nr-border: var(--nr-sage-100);
+  --nr-surface-alt: var(--nr-blue-50);
+  --nr-border: var(--nr-blue-100);
   --nr-text: var(--nr-graphite-900);
   --nr-text-muted: var(--nr-graphite-700);
   --nr-text-on-accent: #ffffff;
 
-  --nr-accent-primary: var(--nr-petrol-500);
-  --nr-accent-primary-hover: var(--nr-petrol-700);
-  --nr-accent-secondary: var(--nr-sage-500);
-  --nr-accent-secondary-text: var(--nr-sage-700);
-  --nr-accent-tertiary: var(--nr-lavender-500);
+  --nr-accent-primary: var(--nr-blue-600);
+  --nr-accent-primary-hover: var(--nr-blue-700);
+  --nr-accent-secondary: var(--nr-emerald-600);
+  --nr-accent-secondary-text: var(--nr-emerald-700);
+  --nr-accent-tertiary: var(--nr-violet-600);
+  --nr-accent-warm: var(--nr-amber-600);
+  --nr-accent-warm-text: var(--nr-amber-700);
+  --nr-accent-pink: var(--nr-rose-600);
+  --nr-accent-pink-text: var(--nr-rose-700);
 
-  --nr-focus-ring: #1e414a;
+  --nr-focus-ring: var(--nr-blue-700);
   --nr-danger: var(--nr-red-600);
-  --nr-warning: var(--nr-amber-600);
-  --nr-success: var(--nr-green-700);
+  --nr-warning: var(--nr-amber-700);
+  --nr-success: var(--nr-emerald-700);
 
   /* Passaporte Sensorial — valores padrão, sobrescritos via JS/inline style */
   --nr-font-scale: 1;
@@ -89,21 +112,25 @@ html {
 }
 
 html[data-theme="dark"] {
-  --nr-bg: var(--nr-graphite-900);
-  --nr-surface: #33393a;
-  --nr-surface-alt: #3d4444;
-  --nr-border: #4a504e;
-  --nr-text: #f2f0eb;
-  --nr-text-muted: #cfd3d1;
+  --nr-bg: #171622;
+  --nr-surface: #262438;
+  --nr-surface-alt: #2e2c42;
+  --nr-border: #423f5c;
+  --nr-text: #f4f2fb;
+  --nr-text-muted: #cac6dd;
   --nr-text-on-accent: #ffffff;
 
-  --nr-accent-primary: var(--nr-petrol-300);
-  --nr-accent-primary-hover: var(--nr-petrol-100);
-  --nr-accent-secondary: var(--nr-sage-300);
-  --nr-accent-secondary-text: var(--nr-sage-300);
-  --nr-accent-tertiary: var(--nr-lavender-300);
+  --nr-accent-primary: var(--nr-blue-300);
+  --nr-accent-primary-hover: var(--nr-blue-100);
+  --nr-accent-secondary: var(--nr-emerald-300);
+  --nr-accent-secondary-text: var(--nr-emerald-300);
+  --nr-accent-tertiary: var(--nr-violet-300);
+  --nr-accent-warm: var(--nr-amber-300);
+  --nr-accent-warm-text: var(--nr-amber-300);
+  --nr-accent-pink: var(--nr-rose-300);
+  --nr-accent-pink-text: var(--nr-rose-300);
 
-  --nr-focus-ring: #e2ddf0;
+  --nr-focus-ring: var(--nr-blue-300);
   color-scheme: dark;
 }
 
@@ -112,6 +139,8 @@ html[data-stimulus="low"] {
   --nr-surface-alt: var(--nr-bg);
   --nr-accent-secondary: var(--nr-graphite-300);
   --nr-accent-tertiary: var(--nr-graphite-300);
+  --nr-accent-warm: var(--nr-graphite-300);
+  --nr-accent-pink: var(--nr-graphite-300);
   --nr-density-gap: 2.25rem;
 }
 
@@ -140,6 +169,8 @@ html[data-motion="none"] * {
   --color-accent-primary-hover: var(--nr-accent-primary-hover);
   --color-accent-secondary: var(--nr-accent-secondary);
   --color-accent-tertiary: var(--nr-accent-tertiary);
+  --color-accent-warm: var(--nr-accent-warm);
+  --color-accent-pink: var(--nr-accent-pink);
   --color-danger: var(--nr-danger);
   --color-warning: var(--nr-warning);
   --color-success: var(--nr-success);

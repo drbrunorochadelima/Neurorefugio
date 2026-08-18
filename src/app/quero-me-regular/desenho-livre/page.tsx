@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ResourceFeedbackWidget } from "@/components/ResourceFeedback";
 
-const COLORS = ["#2C5B66", "#7C9885", "#948BC0", "#DDCCA4", "#2B2F2E", "#FAF8F4"];
+const COLORS = ["#2563EB", "#059669", "#7C3AED", "#D97706", "#E11D48", "#201F2B"];
 
 export default function DesenhoLivrePage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

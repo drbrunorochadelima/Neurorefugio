@@ -4,20 +4,15 @@ import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { listArticles } from "@/lib/services/library";
+import { categoryColor } from "@/lib/category-colors";
 import {
+  AXIS_LABELS,
   CONTENT_CLASSIFICATION_LABELS,
   LIBRARY_AXES,
   type ContentClassification,
   type LibraryArticle,
   type LibraryAxis,
 } from "@/lib/schemas/library";
-
-const AXIS_LABELS: Record<LibraryAxis, string> = {
-  luzes: "Luzes",
-  alarmes: "Alarmes",
-  silencio: "Silêncio",
-  geral: "Geral",
-};
 
 function BibliotecaContent() {
   const searchParams = useSearchParams();
@@ -109,13 +104,24 @@ function BibliotecaContent() {
               href={`/biblioteca/${article.slug}`}
               className="block rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-5 hover:border-[var(--nr-accent-primary)]"
             >
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--nr-text-muted)]">
-                <span className="rounded-full bg-[var(--nr-surface-alt)] px-2 py-0.5">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span
+                  className="rounded-full px-2.5 py-0.5 font-semibold"
+                  style={{
+                    background: categoryColor(article.classificacao).bg,
+                    color: categoryColor(article.classificacao).text,
+                  }}
+                >
                   {CONTENT_CLASSIFICATION_LABELS[article.classificacao]}
                 </span>
-                <span className="rounded-full bg-[var(--nr-surface-alt)] px-2 py-0.5">{AXIS_LABELS[article.eixo]}</span>
+                <span
+                  className="rounded-full px-2.5 py-0.5 font-semibold"
+                  style={{ background: categoryColor(article.eixo).bg, color: categoryColor(article.eixo).text }}
+                >
+                  {AXIS_LABELS[article.eixo]}
+                </span>
                 {article.status !== "revisado" && (
-                  <span className="rounded-full bg-[var(--nr-surface-alt)] px-2 py-0.5">
+                  <span className="rounded-full bg-[var(--nr-surface-alt)] px-2.5 py-0.5 text-[var(--nr-text-muted)]">
                     {article.status === "demonstrativo" ? "Demonstrativo" : "Pendente de revisão"}
                   </span>
                 )}

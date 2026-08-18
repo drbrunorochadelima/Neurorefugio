@@ -13,6 +13,7 @@ import {
   reportContent,
 } from "@/lib/services/community";
 import { FORUM_CATEGORY_LABELS, REACTION_LABELS, REACTION_TYPES } from "@/lib/schemas/community";
+import { categoryColor } from "@/lib/category-colors";
 
 export default function PublicacaoPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -99,9 +100,12 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-      <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
+      <span
+        className="inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide"
+        style={{ background: categoryColor(post.categoria).bg, color: categoryColor(post.categoria).text }}
+      >
         {FORUM_CATEGORY_LABELS[post.categoria]}
-      </p>
+      </span>
       <h1 className="mt-1 text-2xl font-bold text-[var(--nr-text)]">{post.titulo}</h1>
       <p className="mt-1 text-sm text-[var(--nr-text-muted)]">{post.authorDisplayName}</p>
       {post.avisoConteudo && (

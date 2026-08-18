@@ -20,6 +20,13 @@ export const CONTENT_CLASSIFICATION_LABELS: Record<ContentClassification, string
 export const LIBRARY_AXES = ["luzes", "alarmes", "silencio", "geral"] as const;
 export type LibraryAxis = (typeof LIBRARY_AXES)[number];
 
+export const AXIS_LABELS: Record<LibraryAxis, string> = {
+  luzes: "Luzes",
+  alarmes: "Alarmes",
+  silencio: "Silêncio",
+  geral: "Geral",
+};
+
 export const libraryReferenceSchema = z.object({
   citacao: z.string().min(1).max(500),
   url: z.string().url().optional(),
