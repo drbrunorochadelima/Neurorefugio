@@ -4,6 +4,29 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { MAIN_NAV } from "@/lib/nav";
+import { useAuth } from "@/lib/auth/context";
+
+function AccountLink() {
+  const { user } = useAuth();
+  if (user) {
+    return (
+      <Link
+        href="/configuracoes/conta"
+        className="whitespace-nowrap rounded-lg border border-[var(--nr-border)] px-3 py-2 text-sm font-medium text-[var(--nr-text)] hover:bg-[var(--nr-surface-alt)]"
+      >
+        {user.pseudonym}
+      </Link>
+    );
+  }
+  return (
+    <Link
+      href="/entrar"
+      className="whitespace-nowrap rounded-lg border border-[var(--nr-border)] px-3 py-2 text-sm font-medium text-[var(--nr-text)] hover:bg-[var(--nr-surface-alt)]"
+    >
+      Entrar
+    </Link>
+  );
+}
 
 export function NavHeader() {
   const pathname = usePathname();
@@ -40,6 +63,10 @@ export function NavHeader() {
           </ul>
         </nav>
 
+        <div className="hidden lg:block">
+          <AccountLink />
+        </div>
+
         <button
           type="button"
           className="rounded-lg border border-[var(--nr-border)] px-3 py-2 text-sm font-medium text-[var(--nr-text)] lg:hidden"
@@ -72,6 +99,9 @@ export function NavHeader() {
               );
             })}
           </ul>
+          <div className="px-4 pb-4">
+            <AccountLink />
+          </div>
         </nav>
       )}
     </header>

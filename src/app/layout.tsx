@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { SensoryProvider } from "@/lib/sensory/context";
+import { AuthProvider } from "@/lib/auth/context";
 import { SENSORY_BOOTSTRAP_SCRIPT } from "@/lib/sensory/storage";
 import { SkipLink } from "@/components/SkipLink";
 import { NavHeader } from "@/components/NavHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { AcademicFooter } from "@/components/AcademicFooter";
 import { CalmButton } from "@/components/CalmButton";
+import "@/lib/services/register-all";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,14 +34,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col">
         <SensoryProvider>
-          <SkipLink />
-          <NavHeader />
-          <main id="conteudo-principal" className="flex-1 pb-16 lg:pb-0">
-            {children}
-          </main>
-          <AcademicFooter />
-          <MobileBottomNav />
-          <CalmButton />
+          <AuthProvider>
+            <SkipLink />
+            <NavHeader />
+            <main id="conteudo-principal" className="flex-1 pb-16 lg:pb-0">
+              {children}
+            </main>
+            <AcademicFooter />
+            <MobileBottomNav />
+            <CalmButton />
+          </AuthProvider>
         </SensoryProvider>
       </body>
     </html>

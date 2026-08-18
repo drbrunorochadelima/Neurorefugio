@@ -58,4 +58,46 @@ Testado manualmente: alternância de tema claro/escuro, modo de baixo estímulo 
 
 ---
 
+## 2026-08-18 — Fase 3: Camada de dados, autenticação e perfis
+
+**Pronto:**
+- Camada de armazenamento local genérica (`src/lib/storage/local-collection.ts`) com coleções
+  simples e coleções "user-scoped", que se auto-registram em um `user-data-registry` usado por
+  exportação/exclusão de dados (LGPD) — assim novos domínios não exigem alterar o código de conta.
+- Schemas Zod para todos os domínios centrais: autenticação, check-in, Corpo-Monitor, Plano
+  Pessoal/contatos/cartões de comunicação, hiperfocos, comunidade (fórum/denúncias/bloqueios),
+  biblioteca científica e progresso em games (`src/lib/schemas/*`).
+- Serviços de domínio (`src/lib/services/*`) para check-ins (com síntese não diagnóstica),
+  Corpo-Monitor, Plano Pessoal, hiperfocos, progresso em games, desenhos do Ateliê das Cores e
+  comunidade (piloto fechado). Todos hoje rodam sobre o adapter `local`; a interface está pronta
+  para receber um adapter `supabase` equivalente no futuro (ver `.env.example`).
+- Autenticação demonstrativa completa (`src/lib/auth`): cadastro, login, logout, recuperação de
+  senha (token exibido em tela — não há envio real de e-mail neste modo), exclusão de conta com
+  purga de todos os domínios registrados, exportação de dados em `.json`. Senhas nunca gravadas em
+  texto puro (hash SHA-256 com salt via Web Crypto — suficiente para demonstração, não substitui um
+  provedor de auth real). Estado de sessão via `useSyncExternalStore` (sem risco de divergência de
+  hidratação SSR/cliente). Perfil privado por padrão, pseudônimo/nome social/pronomes opcionais.
+- Páginas `/cadastro`, `/entrar`, `/recuperar-senha`, `/configuracoes/conta`.
+
+**Falta:**
+- Adapter Supabase real (hoje só o modo `local`).
+- Páginas que a navegação já referencia mas ainda não existem (`/meu-espaco`, `/corpo-monitor`,
+  `/quero-me-regular`, `/games`, `/hiperfocos`, `/comunidade`, `/biblioteca`, `/instituicoes`,
+  `/pesquisa`, `/termos`, `/privacidade`, `/acessibilidade`) — próximas fases.
+- Papéis "moderador"/"revisor"/"administrador" existem no schema mas ainda não têm UI que os
+  utilize (chega no painel administrativo, fase 11).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright: cadastro completo (pseudônimo, e-mail, senha, aceite de termos e
+privacidade) cria a conta e autentica automaticamente, redirecionando para `/meu-espaco` (ainda não
+implementada nesta fase, 404 esperado). Testar manualmente também: `/entrar`, `/recuperar-senha`
+(gera código em tela) e `/configuracoes/conta` (editar perfil, alternar privacidade, exportar
+`.json`, excluir conta).
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
