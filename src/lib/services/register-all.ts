@@ -12,3 +12,4 @@ import "./hyperfocus";
 import "./game-progress";
 import "./coloring";
 import "./community";
+import "./journal";

@@ -100,4 +100,44 @@ implementada nesta fase, 404 esperado). Testar manualmente também: `/entrar`, `
 
 ---
 
+## 2026-08-18 — Fase 4: Meu Espaço, check-in e Corpo-Monitor
+
+**Pronto:**
+- `/meu-espaco`: painel com os 13 blocos do §7 (check-in, resumo do Corpo-Monitor, plano, games,
+  hiperfocos, comunidades, conteúdos salvos, diário, rotina, cartões, contatos, histórico,
+  configurações sensoriais). Cada bloco pode ser reordenado (▲/▼), reduzido a modo compacto e
+  ocultado/restaurado — preferências salvas em `localStorage`.
+- Check-in rápido embutido no painel e check-in completo em `/meu-espaco/check-in`, ambos com
+  síntese acolhedora e não diagnóstica (`synthesizeCheckIn`) e escalas 0–5 com rótulos textuais
+  (não dependem só de cor).
+- Gráfico acessível (`AccessibleLineChart`): SVG com `title`/`desc`, alternativa em tabela de dados
+  visível sob demanda — usado no histórico de humor/energia/sobrecarga.
+- `/corpo-monitor`: mapa corporal interativo (11 regiões, navegável por teclado e leitor de tela),
+  sensações e intensidade por região, estímulos externos associados sem inferir causalidade, linha
+  do tempo, comparação descritiva entre ambientes (com aviso explícito de que não indica
+  causalidade) e exportação via impressão/PDF do navegador.
+- `/meu-espaco/plano-pessoal`: Plano Pessoal de Autorregulação completo (10 seções), modo "cartão
+  resumido", impressão/exportação em PDF via navegador, e compartilhamento seletivo/revogável com
+  contatos de confiança (registrado localmente; entrega real a outra conta depende de um backend).
+- `/meu-espaco/contatos-de-confianca`: cadastro/remoção de contatos.
+
+**Falta:**
+- "Conteúdos salvos" ainda é um bloco vazio honesto (a Biblioteca científica, onde o salvamento
+  faria sentido, é uma fase futura).
+- Adapter de backend real para sincronizar em nuvem (hoje 100% local).
+- Auditoria formal de acessibilidade (axe/Lighthouse); verificação até aqui foi manual e via
+  Playwright (fluxo de cadastro → check-in → Corpo-Monitor testado ponta a ponta).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Fluxo testado via Playwright: cadastro → `/meu-espaco` (13 blocos renderizando, check-in rápido
+funcional) → `/corpo-monitor` (selecionar região, marcar sensação, salvar registro, ver na linha do
+tempo). Testar manualmente também: reordenar/ocultar/compactar blocos, check-in completo, Plano
+Pessoal (preencher, cartão resumido, imprimir), contatos de confiança.
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
