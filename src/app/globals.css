@@ -1,26 +1,199 @@
 @import "tailwindcss";
 
+/*
+ * NeuroRefúgio — tokens de design
+ *
+ * Paleta: verde-sálvia, azul-petróleo, lavanda suave, areia, branco quente,
+ * cinza-esverdeado, grafite. Sem neon, sem gradientes excessivos.
+ *
+ * Temas (data-theme="light|dark") e modo de baixo estímulo (data-stimulus="low")
+ * são aplicados via atributos no elemento <html> pelo SensoryProvider
+ * (src/lib/sensory/context.tsx), que também grava as preferências do
+ * Passaporte Sensorial em variáveis CSS (--nr-font-scale, --nr-motion, etc.)
+ * para que qualquer componente possa respeitá-las sem lógica duplicada.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta base */
+  --nr-sage-50: #f2f6f2;
+  --nr-sage-100: #dfe9e0;
+  --nr-sage-300: #a9c2ac;
+  --nr-sage-500: #7c9885;
+  --nr-sage-700: #56715e;
+  --nr-sage-900: #33453a;
+
+  --nr-petrol-50: #eef4f5;
+  --nr-petrol-100: #cfe0e3;
+  --nr-petrol-300: #6f9aa3;
+  --nr-petrol-500: #2c5b66;
+  --nr-petrol-700: #1e414a;
+  --nr-petrol-900: #12282e;
+
+  --nr-lavender-50: #f4f2f9;
+  --nr-lavender-100: #e2ddf0;
+  --nr-lavender-300: #bcb2dc;
+  --nr-lavender-500: #948bc0;
+  --nr-lavender-700: #6c6494;
+
+  --nr-sand-50: #faf7f0;
+  --nr-sand-100: #f0e8d6;
+  --nr-sand-300: #ddcca4;
+
+  --nr-warm-white: #faf8f4;
+  --nr-graphite-900: #2b2f2e;
+  --nr-graphite-700: #4a504e;
+  --nr-graphite-500: #6c726f;
+  --nr-graphite-300: #a3a9a6;
+
+  --nr-red-600: #9c3b3b;
+  --nr-amber-600: #93691f;
+  --nr-green-700: #3f6b4a;
+
+  /* Tokens semânticos — tema claro (padrão) */
+  --nr-bg: var(--nr-warm-white);
+  --nr-surface: #ffffff;
+  --nr-surface-alt: var(--nr-sage-50);
+  --nr-border: var(--nr-sage-100);
+  --nr-text: var(--nr-graphite-900);
+  --nr-text-muted: var(--nr-graphite-700);
+  --nr-text-on-accent: #ffffff;
+
+  --nr-accent-primary: var(--nr-petrol-500);
+  --nr-accent-primary-hover: var(--nr-petrol-700);
+  --nr-accent-secondary: var(--nr-sage-500);
+  --nr-accent-tertiary: var(--nr-lavender-500);
+
+  --nr-focus-ring: #1e414a;
+  --nr-danger: var(--nr-red-600);
+  --nr-warning: var(--nr-amber-600);
+  --nr-success: var(--nr-green-700);
+
+  /* Passaporte Sensorial — valores padrão, sobrescritos via JS/inline style */
+  --nr-font-scale: 1;
+  --nr-line-height-scale: 1;
+  --nr-letter-spacing: normal;
+  --nr-font-weight-body: 400;
+  --nr-motion-duration: 200ms;
+  --nr-motion-enabled: 1;
+  --nr-saturation: 1;
+  --nr-contrast: 1;
+  --nr-brightness: 1;
+  --nr-density-gap: 1.5rem;
+
+  color-scheme: light;
+}
+
+html {
+  filter: saturate(var(--nr-saturation)) contrast(var(--nr-contrast)) brightness(var(--nr-brightness));
+}
+
+html[data-theme="dark"] {
+  --nr-bg: var(--nr-graphite-900);
+  --nr-surface: #33393a;
+  --nr-surface-alt: #3d4444;
+  --nr-border: #4a504e;
+  --nr-text: #f2f0eb;
+  --nr-text-muted: #cfd3d1;
+  --nr-text-on-accent: #ffffff;
+
+  --nr-accent-primary: var(--nr-petrol-300);
+  --nr-accent-primary-hover: var(--nr-petrol-100);
+  --nr-accent-secondary: var(--nr-sage-300);
+  --nr-accent-tertiary: var(--nr-lavender-300);
+
+  --nr-focus-ring: #e2ddf0;
+  color-scheme: dark;
+}
+
+/* Modo de baixo estímulo: reduz densidade e contraste entre elementos decorativos */
+html[data-stimulus="low"] {
+  --nr-surface-alt: var(--nr-bg);
+  --nr-accent-secondary: var(--nr-graphite-300);
+  --nr-accent-tertiary: var(--nr-graphite-300);
+  --nr-density-gap: 2.25rem;
+}
+
+html[data-stimulus="low"] [data-decorative="true"],
+html[data-hide-decorative="true"] [data-decorative="true"] {
+  display: none !important;
+}
+
+html[data-motion="reduced"] *,
+html[data-motion="none"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--nr-bg);
+  --color-surface: var(--nr-surface);
+  --color-surface-alt: var(--nr-surface-alt);
+  --color-border: var(--nr-border);
+  --color-text: var(--nr-text);
+  --color-text-muted: var(--nr-text-muted);
+  --color-text-on-accent: var(--nr-text-on-accent);
+  --color-accent-primary: var(--nr-accent-primary);
+  --color-accent-primary-hover: var(--nr-accent-primary-hover);
+  --color-accent-secondary: var(--nr-accent-secondary);
+  --color-accent-tertiary: var(--nr-accent-tertiary);
+  --color-danger: var(--nr-danger);
+  --color-warning: var(--nr-warning);
+  --color-success: var(--nr-success);
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--nr-border);
+}
+
+html {
+  font-size: calc(100% * var(--nr-font-scale));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--nr-bg);
+  color: var(--nr-text);
+  font-family: var(--font-sans);
+  line-height: calc(1.55 * var(--nr-line-height-scale));
+  letter-spacing: var(--nr-letter-spacing);
+  font-weight: var(--nr-font-weight-body);
+}
+
+/* Foco visível consistente em toda a plataforma (WCAG 2.2 AA 2.4.11/2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--nr-focus-ring);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Link para pular para o conteúdo principal */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--nr-accent-primary);
+  color: var(--nr-text-on-accent);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: top 0.15s ease;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Oculta conteúdo não essencial durante o modo "Preciso de calma" */
+html[data-calm="true"] [data-nonessential="true"] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
