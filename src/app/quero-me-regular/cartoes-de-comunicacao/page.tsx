@@ -34,7 +34,7 @@ export default function CartoesDeComunicacaoPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Entre para usar seus cartões de comunicação.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -168,7 +168,7 @@ function CardsManager({ userId }: { userId: string }) {
         </button>
       </form>
 
-      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Quero me regular
       </Link>
     </div>

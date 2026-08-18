@@ -50,7 +50,7 @@ export default function SegurancaPage() {
             Enquanto isso: em emergência médica, procure o serviço de urgência/emergência mais
             próximo de você. Para apoio emocional no Brasil, o CVV (Centro de Valorização da Vida)
             oferece atendimento gratuito — consulte o número e os canais atualizados em{" "}
-            <a href="https://www.cvv.org.br" target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] hover:underline">
+            <a href="https://www.cvv.org.br" target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] underline">
               cvv.org.br
             </a>
             .
@@ -61,12 +61,12 @@ export default function SegurancaPage() {
       <div className="mt-4 rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-6">
         <h2 className="text-lg font-semibold text-[var(--nr-text)]">Seus contatos de confiança</h2>
         {user ? (
-          <Link href="/meu-espaco/contatos-de-confianca" className="mt-2 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/meu-espaco/contatos-de-confianca" className="mt-2 inline-block text-sm text-[var(--nr-accent-primary)] underline">
             Ver ou avisar um contato de confiança
           </Link>
         ) : (
           <p className="mt-2 text-sm text-[var(--nr-text-muted)]">
-            <Link href="/entrar" className="text-[var(--nr-accent-primary)] hover:underline">
+            <Link href="/entrar" className="text-[var(--nr-accent-primary)] underline">
               Entre
             </Link>{" "}
             para acessar seus contatos de confiança cadastrados.

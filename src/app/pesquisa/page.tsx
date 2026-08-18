@@ -1,7 +1,7 @@
 export default function PesquisaPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-wide text-[var(--nr-accent-secondary)]">
+      <p className="text-xs font-semibold uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
         Conheça a pesquisa
       </p>
       <h1 className="mt-2 text-2xl font-bold text-[var(--nr-text)]">

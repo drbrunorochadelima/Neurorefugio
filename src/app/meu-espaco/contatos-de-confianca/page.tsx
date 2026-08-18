@@ -13,7 +13,7 @@ export default function ContatosDeConfiancaPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Entre para gerenciar seus contatos de confiança.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -91,7 +91,7 @@ function ContactsManager({ userId }: { userId: string }) {
         <p className="mt-6 text-sm text-[var(--nr-text-muted)]">Nenhum contato cadastrado ainda.</p>
       )}
 
-      <Link href="/meu-espaco" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/meu-espaco" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Meu Espaço
       </Link>
     </div>

@@ -32,7 +32,7 @@ export default function AdminModeracaoPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Acesso restrito a administradores e moderadores.</p>
-        <Link href="/admin" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/admin" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar
         </Link>
       </div>
@@ -67,7 +67,7 @@ export default function AdminModeracaoPage() {
           <ul className="mt-3 flex flex-col gap-3">
             {pendingPosts.map((post) => (
               <li key={post.id} className="rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-5">
-                <p className="text-xs uppercase tracking-wide text-[var(--nr-accent-secondary)]">
+                <p className="text-xs uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
                   {FORUM_CATEGORY_LABELS[post.categoria]}
                 </p>
                 <h3 className="mt-1 font-semibold text-[var(--nr-text)]">{post.titulo}</h3>
@@ -125,7 +125,7 @@ export default function AdminModeracaoPage() {
         )}
       </section>
 
-      <Link href="/admin" className="mt-8 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/admin" className="mt-8 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar ao painel
       </Link>
     </div>

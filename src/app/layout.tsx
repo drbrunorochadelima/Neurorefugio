@@ -7,6 +7,7 @@ import { NavHeader } from "@/components/NavHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { AcademicFooter } from "@/components/AcademicFooter";
 import { CalmButton } from "@/components/CalmButton";
+import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import "@/lib/services/register-all";
 import "./globals.css";
 
@@ -18,6 +19,13 @@ export const metadata: Metadata = {
   description:
     "Plataforma Corpo-Monitor: refúgio digital de baixo estímulo, autoconhecimento sensorial, games neuroinclusivos e biblioteca científica sobre neurodiversidade.",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+  },
 };
 
 export const viewport: Viewport = {
@@ -43,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <AcademicFooter />
             <MobileBottomNav />
             <CalmButton />
+            <ServiceWorkerRegistration />
           </AuthProvider>
         </SensoryProvider>
       </body>

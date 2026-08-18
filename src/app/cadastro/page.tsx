@@ -88,7 +88,7 @@ export default function CadastroPage() {
             className="mt-1 h-4 w-4 accent-[var(--nr-accent-primary)]"
           />
           Li e aceito os{" "}
-          <Link href="/termos" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/termos" className="text-[var(--nr-accent-primary)] underline">
             Termos de uso
           </Link>
           .
@@ -103,7 +103,7 @@ export default function CadastroPage() {
             className="mt-1 h-4 w-4 accent-[var(--nr-accent-primary)]"
           />
           Li a{" "}
-          <Link href="/privacidade" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/privacidade" className="text-[var(--nr-accent-primary)] underline">
             Política de Privacidade
           </Link>
           .
@@ -129,7 +129,7 @@ export default function CadastroPage() {
 
       <p className="mt-6 text-sm text-[var(--nr-text-muted)]">
         Já tem conta?{" "}
-        <Link href="/entrar" className="text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </p>

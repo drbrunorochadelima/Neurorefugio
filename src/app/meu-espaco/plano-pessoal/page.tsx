@@ -44,7 +44,7 @@ export default function PlanoPessoalPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Entre para acessar seu Plano Pessoal.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -160,7 +160,7 @@ function PlanoPessoalForm({ userId }: { userId: string }) {
         {contacts.length === 0 ? (
           <p className="mt-3 text-sm text-[var(--nr-text-muted)]">
             Você ainda não cadastrou contatos de confiança.{" "}
-            <Link href="/meu-espaco/contatos-de-confianca" className="text-[var(--nr-accent-primary)] hover:underline">
+            <Link href="/meu-espaco/contatos-de-confianca" className="text-[var(--nr-accent-primary)] underline">
               Cadastrar agora
             </Link>
             .
@@ -185,7 +185,7 @@ function PlanoPessoalForm({ userId }: { userId: string }) {
         )}
       </div>
 
-      <Link href="/meu-espaco" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline print:hidden">
+      <Link href="/meu-espaco" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline print:hidden">
         Voltar para Meu Espaço
       </Link>
     </div>

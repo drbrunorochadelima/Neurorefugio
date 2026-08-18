@@ -106,7 +106,7 @@ function ComunidadeContent() {
               href={`/comunidade/${post.id}`}
               className="block rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-5 hover:border-[var(--nr-accent-primary)]"
             >
-              <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary)]">
+              <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
                 {FORUM_CATEGORY_LABELS[post.categoria]}
               </p>
               <h2 className="mt-1 font-semibold text-[var(--nr-text)]">{post.titulo}</h2>

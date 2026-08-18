@@ -14,7 +14,7 @@ export default function HiperfocosPage() {
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <h1 className="text-xl font-semibold text-[var(--nr-text)]">Hiperfocos</h1>
         <p className="mt-2 text-[var(--nr-text-muted)]">Entre para cadastrar e explorar seus hiperfocos.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -153,7 +153,7 @@ function HiperfocosManager({ userId }: { userId: string }) {
 
       <p className="mt-8 text-sm text-[var(--nr-text-muted)]">
         Quer encontrar pessoas com interesses parecidos?{" "}
-        <Link href="/comunidade?categoria=hiperfocos" className="text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/comunidade?categoria=hiperfocos" className="text-[var(--nr-accent-primary)] underline">
           Veja a categoria Hiperfocos na Comunidade
         </Link>
         .

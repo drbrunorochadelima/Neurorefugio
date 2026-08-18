@@ -161,7 +161,7 @@ export default function MeditacoesPage() {
 
       <ResourceFeedbackWidget resourceId="meditacoes" />
 
-      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Quero me regular
       </Link>
     </div>

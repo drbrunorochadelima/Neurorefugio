@@ -31,7 +31,7 @@ export default function ArtigoPage({ params }: { params: Promise<{ slug: string 
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Conteúdo não encontrado.</p>
-        <Link href="/biblioteca" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/biblioteca" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar para a Biblioteca
         </Link>
       </div>
@@ -89,7 +89,7 @@ export default function ArtigoPage({ params }: { params: Promise<{ slug: string 
             {article.referencias.map((r) => (
               <li key={r.citacao}>
                 {r.url ? (
-                  <a href={r.url} target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] hover:underline">
+                  <a href={r.url} target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] underline">
                     {r.citacao}
                   </a>
                 ) : (
@@ -107,7 +107,7 @@ export default function ArtigoPage({ params }: { params: Promise<{ slug: string 
           <ul className="mt-2 flex flex-col gap-1">
             {related.map((r) => (
               <li key={r.id}>
-                <Link href={`/biblioteca/${r.slug}`} className="text-sm text-[var(--nr-accent-primary)] hover:underline">
+                <Link href={`/biblioteca/${r.slug}`} className="text-sm text-[var(--nr-accent-primary)] underline">
                   {r.titulo}
                 </Link>
               </li>
@@ -116,7 +116,7 @@ export default function ArtigoPage({ params }: { params: Promise<{ slug: string 
         </div>
       )}
 
-      <Link href="/biblioteca" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/biblioteca" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para a Biblioteca
       </Link>
     </div>

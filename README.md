@@ -52,14 +52,37 @@ npm start        # servir o build de produção
 
 ## Modo demonstrativo
 
-Por padrão (`NEXT_PUBLIC_DATA_BACKEND=local`), todos os dados — perfil, check-ins, corpo-monitor,
-plano pessoal, hiperfocos, progresso em jogos, publicações da comunidade — são armazenados
-localmente no navegador (localStorage) e claramente identificados como fictícios/demonstrativos.
-Nenhuma credencial real é necessária para explorar a plataforma.
+Nesta versão, todos os dados — perfil, check-ins, corpo-monitor, plano pessoal, hiperfocos,
+progresso em jogos, publicações da comunidade — são armazenados apenas no navegador
+(`localStorage`) e claramente identificados como fictícios/demonstrativos. Nenhuma credencial real
+é necessária para explorar a plataforma, e nenhum dado sai do seu navegador.
 
-Para ligar um backend real (Supabase ou equivalente), preencha as variáveis em `.env.local` conforme
-`.env.example` e altere `NEXT_PUBLIC_DATA_BACKEND=supabase`. O adapter Supabase real é implementado
-progressivamente — ver `STATUS.md` para o estado atual.
+`.env.example` documenta a variável `NEXT_PUBLIC_DATA_BACKEND` e as credenciais que um adapter
+Supabase real precisaria — isso descreve a extensão planejada (ver
+`docs/plano-de-expansao-futura.md`), não uma funcionalidade já implementada: hoje só existe o
+adapter `local`, e nenhuma lógica de troca de backend está ativa no código.
+
+## Testes
+
+```bash
+npm test         # Vitest: testes unitários e de componentes
+```
+
+Cobre lógica crítica (serviço de check-ins e sua síntese não diagnóstica, coleções locais e o
+registro de exportação/exclusão de dados para LGPD, validação de schemas, persistência do
+Passaporte Sensorial, autenticação demonstrativa) e componentes (campo de formulário acessível,
+gráfico acessível com alternativa em tabela).
+
+Além dos testes automatizados, todas as fases foram verificadas manualmente e via Playwright
+(navegação real em Chromium) — ver `STATUS.md` para o que foi testado em cada fase, e
+`docs/relatorio-de-acessibilidade.md` para a auditoria automatizada de acessibilidade (axe-core,
+0 violações em 28 rotas nesta versão).
+
+## PWA
+
+O site é instalável (manifest em `public/manifest.webmanifest`, ícones em `public/icons/`) e tem
+um service worker (`public/sw.js`, registrado apenas em produção) com estratégia network-first e
+fallback em cache, cobrindo navegação básica e ativos estáticos para uso offline parcial.
 
 ## Documentação do projeto
 
@@ -67,6 +90,13 @@ progressivamente — ver `STATUS.md` para o estado atual.
 - `PLAN.md` — plano de implementação por fases.
 - `STATUS.md` — o que está pronto, o que falta, como testar, atualizado por fase.
 - `.env.example` — variáveis de ambiente documentadas.
+- `docs/manual-do-usuario.md` — como usar a plataforma.
+- `docs/manual-do-administrador.md` — como usar o painel administrativo.
+- `docs/matriz-de-rastreabilidade-cientifica.md` — liga conceitos da pesquisa às funcionalidades.
+- `docs/plano-de-validacao.md` — validação científica e técnica planejada.
+- `docs/relatorio-de-acessibilidade.md` — auditoria automatizada e limitações conhecidas.
+- `docs/limitacoes.md` — lista honesta do que ainda não foi feito.
+- `docs/plano-de-expansao-futura.md` — próximos passos sugeridos, em ordem de prioridade.
 
 ## Licença e uso
 

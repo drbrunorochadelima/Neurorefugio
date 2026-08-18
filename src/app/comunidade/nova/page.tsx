@@ -21,7 +21,7 @@ export default function NovaPublicacaoPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Entre para publicar na comunidade.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -104,7 +104,7 @@ export default function NovaPublicacaoPage() {
         </button>
       </form>
 
-      <Link href="/comunidade" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/comunidade" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para a Comunidade
       </Link>
     </div>

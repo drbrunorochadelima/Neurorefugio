@@ -27,7 +27,7 @@ export default function TermosPage() {
           Não é um serviço de emergência, diagnóstico ou atendimento psicológico ou médico. Não
           substitui acompanhamento profissional de saúde. Em situações de risco, procure ajuda
           profissional imediata — veja a página{" "}
-          <Link href="/seguranca" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/seguranca" className="text-[var(--nr-accent-primary)] underline">
             Segurança
           </Link>
           .
@@ -50,7 +50,7 @@ export default function TermosPage() {
         <h2 className="mt-2 text-lg font-semibold">Sua conta</h2>
         <p>
           Você pode excluir sua conta e todos os dados associados a ela a qualquer momento, em{" "}
-          <Link href="/configuracoes/conta" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/configuracoes/conta" className="text-[var(--nr-accent-primary)] underline">
             Minha conta
           </Link>
           .
@@ -59,7 +59,7 @@ export default function TermosPage() {
         <h2 className="mt-2 text-lg font-semibold">Contato</h2>
         <p>
           Para dúvidas sobre estes termos, veja as informações de orientação e instituição em{" "}
-          <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] underline">
             Conheça a pesquisa
           </Link>
           .

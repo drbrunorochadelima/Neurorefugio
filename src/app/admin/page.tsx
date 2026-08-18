@@ -20,7 +20,7 @@ export default function AdminPage() {
         <p className="mt-2 text-[var(--nr-text-muted)]">
           Esta área é restrita a contas com papel de administrador(a).
         </p>
-        <Link href="/configuracoes/conta" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/configuracoes/conta" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Ir para Minha conta
         </Link>
       </div>

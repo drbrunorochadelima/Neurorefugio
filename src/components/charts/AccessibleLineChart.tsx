@@ -94,7 +94,7 @@ export function AccessibleLineChart({ title, description, series, min = 0, max =
         <button
           type="button"
           onClick={() => setShowTable((v) => !v)}
-          className="ml-auto text-sm font-medium text-[var(--nr-accent-primary)] hover:underline"
+          className="ml-auto text-sm font-medium text-[var(--nr-accent-primary)] underline"
         >
           {showTable ? "Ocultar dados em tabela" : "Ver dados em tabela"}
         </button>

@@ -27,7 +27,7 @@ export default function CorpoMonitorPage() {
       {!user ? (
         <div className="mt-6 rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-6 text-center">
           <p className="text-[var(--nr-text)]">Entre para registrar e acompanhar seu Corpo-Monitor.</p>
-          <Link href="/entrar" className="mt-3 inline-block text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/entrar" className="mt-3 inline-block text-[var(--nr-accent-primary)] underline">
             Entrar
           </Link>
         </div>
@@ -160,7 +160,7 @@ function CorpoMonitorContent({ userId }: { userId: string }) {
         </section>
       )}
 
-      <Link href="/meu-espaco" className="text-sm text-[var(--nr-accent-primary)] hover:underline print:hidden">
+      <Link href="/meu-espaco" className="text-sm text-[var(--nr-accent-primary)] underline print:hidden">
         Voltar para Meu Espaço
       </Link>
     </div>

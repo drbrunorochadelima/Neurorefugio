@@ -61,6 +61,7 @@
   --nr-accent-primary: var(--nr-petrol-500);
   --nr-accent-primary-hover: var(--nr-petrol-700);
   --nr-accent-secondary: var(--nr-sage-500);
+  --nr-accent-secondary-text: var(--nr-sage-700);
   --nr-accent-tertiary: var(--nr-lavender-500);
 
   --nr-focus-ring: #1e414a;
@@ -99,6 +100,7 @@ html[data-theme="dark"] {
   --nr-accent-primary: var(--nr-petrol-300);
   --nr-accent-primary-hover: var(--nr-petrol-100);
   --nr-accent-secondary: var(--nr-sage-300);
+  --nr-accent-secondary-text: var(--nr-sage-300);
   --nr-accent-tertiary: var(--nr-lavender-300);
 
   --nr-focus-ring: #e2ddf0;

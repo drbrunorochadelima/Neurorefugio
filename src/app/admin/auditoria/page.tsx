@@ -20,7 +20,7 @@ export default function AdminAuditoriaPage() {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Acesso restrito a administradores.</p>
-        <Link href="/admin" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/admin" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar
         </Link>
       </div>
@@ -50,7 +50,7 @@ export default function AdminAuditoriaPage() {
         <p className="mt-4 text-sm text-[var(--nr-text-muted)]">Nenhuma ação registrada ainda.</p>
       )}
 
-      <Link href="/admin" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/admin" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar ao painel
       </Link>
     </div>

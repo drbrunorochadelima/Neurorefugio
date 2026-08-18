@@ -49,7 +49,7 @@ export default function SonsPage() {
           Sons opcionais estão desativados nas suas preferências. Você pode ativá-los em Meu
           Ambiente, se quiser.
         </p>
-        <Link href="/configuracoes" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/configuracoes" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Abrir Meu Ambiente
         </Link>
       </div>
@@ -101,7 +101,7 @@ export default function SonsPage() {
 
       <ResourceFeedbackWidget resourceId="sons" />
 
-      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Quero me regular
       </Link>
     </div>

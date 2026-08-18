@@ -81,12 +81,12 @@ export default function EntrarPage() {
       </form>
 
       <div className="mt-6 flex flex-col gap-2 text-sm text-[var(--nr-text-muted)]">
-        <Link href="/recuperar-senha" className="text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/recuperar-senha" className="text-[var(--nr-accent-primary)] underline">
           Esqueci minha senha
         </Link>
         <p>
           Não tem conta?{" "}
-          <Link href="/cadastro" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/cadastro" className="text-[var(--nr-accent-primary)] underline">
             Criar conta
           </Link>
         </p>

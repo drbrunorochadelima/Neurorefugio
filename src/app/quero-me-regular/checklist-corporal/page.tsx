@@ -52,7 +52,7 @@ export default function ChecklistCorporalPage() {
 
       <p className="mt-4 text-sm text-[var(--nr-text-muted)]">
         Quer registrar isto no seu histórico?{" "}
-        <Link href="/meu-espaco/check-in" className="text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/meu-espaco/check-in" className="text-[var(--nr-accent-primary)] underline">
           Fazer um check-in completo
         </Link>
         .
@@ -60,7 +60,7 @@ export default function ChecklistCorporalPage() {
 
       <ResourceFeedbackWidget resourceId="checklist-corporal" />
 
-      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/quero-me-regular" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Quero me regular
       </Link>
     </div>

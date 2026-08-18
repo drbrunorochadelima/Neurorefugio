@@ -355,4 +355,59 @@ contato oficial e ver refletido em `/seguranca`), `/admin/auditoria`.
 
 ---
 
+## 2026-08-18 — Fase 10: Testes, PWA e documentação final
+
+**Pronto:**
+- **PWA**: `public/manifest.webmanifest`, ícones gerados (`public/icons/icon-192.png` e
+  `icon-512.png`), service worker (`public/sw.js`, network-first com fallback em cache, registrado
+  apenas em produção via `ServiceWorkerRegistration`). Verificado que `manifest.webmanifest`,
+  `sw.js` e os ícones respondem 200 em build de produção.
+- **Testes automatizados** com Vitest + Testing Library (`npm test`): 27 testes em 7 arquivos —
+  serviço de check-ins (incluindo a síntese não diagnóstica), coleções locais e o registro
+  LGPD de exportação/exclusão, schemas de autenticação, persistência do Passaporte Sensorial
+  (nunca liga som por padrão), autenticação demonstrativa (cadastro/login/exclusão via Web Crypto
+  real), e dois componentes (`TextField`, `AccessibleLineChart`).
+- **Auditoria de acessibilidade real** com axe-core em 28 rotas (build de produção): encontrou e
+  corrigiu duas violações reais — contraste de texto insuficiente (~3,1:1) no tom de
+  verde-sálvia usado como texto, e links dentro de blocos de texto distinguíveis apenas por cor
+  (sem sublinhado por padrão). Resultado final: **0 violações automatizadas** nas 28 rotas.
+  Detalhes em `docs/relatorio-de-acessibilidade.md`.
+- **Documentação final completa**: `docs/manual-do-usuario.md`, `docs/manual-do-administrador.md`,
+  `docs/matriz-de-rastreabilidade-cientifica.md`, `docs/plano-de-validacao.md`,
+  `docs/relatorio-de-acessibilidade.md`, `docs/limitacoes.md`, `docs/plano-de-expansao-futura.md`.
+- README e `.env.example` corrigidos para não sugerir que a troca de backend (Supabase) ou os
+  contatos de emergência por variável de ambiente já funcionam — hoje só o adapter `local` e os
+  contatos oficiais geridos pelo painel administrativo estão realmente implementados.
+
+**Critérios de aceite do §27 do prompt mestre — status:**
+- Menus, botões, formulários e links: testados manualmente e via Playwright em todas as fases.
+- Cadastro, login, recuperação, exclusão: testado (inclui teste automatizado da store de auth).
+- Permissões e privacidade: testado (perfil privado por padrão, papéis, painel admin).
+- Games em computador e celular: testado em viewport desktop; teste sistemático em tablet/celular
+  real não foi realizado (apenas viewport simulado do navegador).
+- Teclado, foco, leitor de tela, contraste, zoom: teclado/foco/contraste verificados (auditoria +
+  manual); leitor de tela real e zoom 200% sistemático **não** testados — limitação registrada.
+- Baixo estímulo e "Preciso de calma": testado manualmente e via Playwright.
+- Exportações e relatórios: testado (exportar dados em `.json`, imprimir Plano Pessoal/Corpo-
+  Monitor/checklist institucional).
+- Fórum, denúncias, bloqueios: testado ponta a ponta via Playwright (publicar → moderar → aprovar).
+- Segurança e ausência de dados sensíveis em logs: nenhum log de servidor existe nesta versão
+  (tudo roda no navegador); não há console.log de dados sensíveis no código.
+- Lorem ipsum, páginas vazias, funções falsas: nenhuma encontrada; toda funcionalidade descrita na
+  interface funciona ou está claramente marcada como "em desenvolvimento".
+- Nenhum som automático: confirmado por regra de design (sons sempre opt-in) e verificação manual.
+- Nenhum game interpreta desempenho como diagnóstico: confirmado nos textos de cada game.
+
+**Falta:** ver `docs/limitacoes.md` para a lista completa e `docs/plano-de-expansao-futura.md` para
+os próximos passos priorizados.
+
+**Como testar:**
+```bash
+npm install
+npm run lint && npm test && npm run build
+npm run dev            # http://localhost:3000
+```
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*

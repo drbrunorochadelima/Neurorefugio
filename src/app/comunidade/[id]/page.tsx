@@ -40,7 +40,7 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Publicação não encontrada ou ainda não publicada.</p>
-        <Link href="/comunidade" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/comunidade" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar para a Comunidade
         </Link>
       </div>
@@ -52,7 +52,7 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Você bloqueou o autor desta publicação.</p>
-        <Link href="/comunidade" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/comunidade" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar para a Comunidade
         </Link>
       </div>
@@ -99,7 +99,7 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-      <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary)]">
+      <p className="text-xs font-medium uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
         {FORUM_CATEGORY_LABELS[post.categoria]}
       </p>
       <h1 className="mt-1 text-2xl font-bold text-[var(--nr-text)]">{post.titulo}</h1>
@@ -196,7 +196,7 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
           </form>
         ) : (
           <p className="mt-3 text-sm text-[var(--nr-text-muted)]">
-            <Link href="/entrar" className="text-[var(--nr-accent-primary)] hover:underline">
+            <Link href="/entrar" className="text-[var(--nr-accent-primary)] underline">
               Entre
             </Link>{" "}
             para comentar.
@@ -204,7 +204,7 @@ export default function PublicacaoPage({ params }: { params: Promise<{ id: strin
         )}
       </section>
 
-      <Link href="/comunidade" className="mt-8 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/comunidade" className="mt-8 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para a Comunidade
       </Link>
     </div>

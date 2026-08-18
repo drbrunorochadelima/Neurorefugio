@@ -25,7 +25,7 @@ export default function HiperfocoDetailPage({ params }: { params: Promise<{ id: 
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Entre para ver este hiperfoco.</p>
-        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Entrar
         </Link>
       </div>
@@ -36,7 +36,7 @@ export default function HiperfocoDetailPage({ params }: { params: Promise<{ id: 
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center sm:px-6">
         <p className="text-[var(--nr-text)]">Hiperfoco não encontrado.</p>
-        <Link href="/hiperfocos" className="mt-4 inline-block text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/hiperfocos" className="mt-4 inline-block text-[var(--nr-accent-primary)] underline">
           Voltar
         </Link>
       </div>
@@ -127,7 +127,7 @@ export default function HiperfocoDetailPage({ params }: { params: Promise<{ id: 
           <ul className="mt-2 flex flex-col gap-2">
             {hyperfocus.links.map((l) => (
               <li key={l.id} className="flex items-center justify-between gap-2 text-sm">
-                <a href={l.url} target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] hover:underline">
+                <a href={l.url} target="_blank" rel="noreferrer" className="text-[var(--nr-accent-primary)] underline">
                   {l.titulo}
                 </a>
                 <button type="button" onClick={() => handleRemoveLink(l.id)} className="text-xs text-[var(--nr-danger)]">
@@ -175,7 +175,7 @@ export default function HiperfocoDetailPage({ params }: { params: Promise<{ id: 
         </form>
       </section>
 
-      <Link href="/hiperfocos" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/hiperfocos" className="mt-6 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Voltar para Hiperfocos
       </Link>
     </div>

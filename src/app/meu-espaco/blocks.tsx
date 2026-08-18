@@ -89,7 +89,7 @@ export function CheckInBlock({ userId }: { userId: string }) {
           {synthesis}
         </p>
       )}
-      <Link href="/meu-espaco/check-in" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/meu-espaco/check-in" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Fazer check-in completo
       </Link>
     </div>
@@ -109,7 +109,7 @@ export function CorpoMonitorBlock({ userId }: { userId: string }) {
       ) : (
         <p className="text-sm text-[var(--nr-text-muted)]">Você ainda não tem registros no Corpo-Monitor.</p>
       )}
-      <Link href="/corpo-monitor" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/corpo-monitor" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Abrir Corpo-Monitor
       </Link>
     </div>
@@ -129,7 +129,7 @@ export function PlanoBlock({ userId }: { userId: string }) {
       <p className="text-sm text-[var(--nr-text-muted)]">
         {filledFields > 0 ? `${filledFields} de 4 seções principais preenchidas.` : "Seu plano ainda está vazio."}
       </p>
-      <Link href="/meu-espaco/plano-pessoal" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/meu-espaco/plano-pessoal" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Abrir Plano Pessoal
       </Link>
     </div>
@@ -151,7 +151,7 @@ export function GamesBlock({ userId }: { userId: string }) {
       ) : (
         <p className="text-sm text-[var(--nr-text-muted)]">Você ainda não jogou nenhum game.</p>
       )}
-      <Link href="/games" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/games" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Ir para o Laboratório de Games
       </Link>
     </div>
@@ -165,7 +165,7 @@ export function HiperfocosBlock({ userId }: { userId: string }) {
       <p className="text-sm text-[var(--nr-text-muted)]">
         {list.length > 0 ? `${list.length} hiperfoco(s) cadastrado(s).` : "Nenhum hiperfoco cadastrado ainda."}
       </p>
-      <Link href="/hiperfocos" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/hiperfocos" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Ver meus hiperfocos
       </Link>
     </div>
@@ -179,7 +179,7 @@ export function ComunidadesBlock() {
         A comunidade está em piloto fechado: publicações passam por revisão antes de ficarem
         visíveis a outras pessoas.
       </p>
-      <Link href="/comunidade" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/comunidade" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Ir para a Comunidade
       </Link>
     </div>
@@ -192,7 +192,7 @@ export function ConteudosSalvosBlock() {
       <p className="text-sm text-[var(--nr-text-muted)]">
         Você ainda não salvou nenhum conteúdo da Biblioteca científica.
       </p>
-      <Link href="/biblioteca" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/biblioteca" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Explorar a Biblioteca
       </Link>
     </div>
@@ -314,7 +314,7 @@ export function CartoesBlock({ userId }: { userId: string }) {
       <p className="text-sm text-[var(--nr-text-muted)]">
         {cards.length > 0 ? `${cards.length} cartão(ões) salvo(s).` : "Nenhum cartão de comunicação salvo ainda."}
       </p>
-      <Link href="/quero-me-regular/cartoes-de-comunicacao" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/quero-me-regular/cartoes-de-comunicacao" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Gerenciar cartões
       </Link>
     </div>
@@ -328,7 +328,7 @@ export function ContatosBlock({ userId }: { userId: string }) {
       <p className="text-sm text-[var(--nr-text-muted)]">
         {contacts.length > 0 ? `${contacts.length} contato(s) de confiança.` : "Nenhum contato de confiança cadastrado."}
       </p>
-      <Link href="/meu-espaco/contatos-de-confianca" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/meu-espaco/contatos-de-confianca" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Gerenciar contatos
       </Link>
     </div>
@@ -363,7 +363,7 @@ export function ConfiguracoesSensoriaisBlock() {
   return (
     <div>
       <p className="text-sm text-[var(--nr-text-muted)]">Ajuste tema, estímulo, texto, movimento e som.</p>
-      <Link href="/configuracoes" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] hover:underline">
+      <Link href="/configuracoes" className="mt-3 inline-block text-sm text-[var(--nr-accent-primary)] underline">
         Abrir Meu Ambiente
       </Link>
     </div>

@@ -17,37 +17,37 @@ export function AcademicFooter() {
         <nav aria-label="Links institucionais" className="mt-6">
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
-              <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] underline">
                 Orientação e instituição
               </Link>
             </li>
             <li>
-              <Link href="/biblioteca" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/biblioteca" className="text-[var(--nr-accent-primary)] underline">
                 Referências
               </Link>
             </li>
             <li>
-              <Link href="/pesquisa#contato" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/pesquisa#contato" className="text-[var(--nr-accent-primary)] underline">
                 Contato
               </Link>
             </li>
             <li>
-              <Link href="/acessibilidade" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/acessibilidade" className="text-[var(--nr-accent-primary)] underline">
                 Acessibilidade
               </Link>
             </li>
             <li>
-              <Link href="/seguranca" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/seguranca" className="text-[var(--nr-accent-primary)] underline">
                 Segurança
               </Link>
             </li>
             <li>
-              <Link href="/privacidade" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/privacidade" className="text-[var(--nr-accent-primary)] underline">
                 Privacidade
               </Link>
             </li>
             <li>
-              <Link href="/termos" className="text-[var(--nr-accent-primary)] hover:underline">
+              <Link href="/termos" className="text-[var(--nr-accent-primary)] underline">
                 Termos
               </Link>
             </li>

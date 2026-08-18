@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-12 px-4 py-12 sm:px-6">
       <section className="text-center">
-        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--nr-accent-secondary)]">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--nr-accent-secondary-text)]">
           Plataforma Corpo-Monitor · Acessibilidade Sensorial na Terapia Intensiva
         </p>
         <h1 className="mt-4 text-3xl font-bold text-[var(--nr-text)] sm:text-4xl">
@@ -86,7 +86,7 @@ export default function Home() {
         </p>
         <p className="mt-3 max-w-3xl text-[var(--nr-text-muted)]">
           É um produto técnico-científico vinculado ao mestrado{" "}
-          <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/pesquisa" className="text-[var(--nr-accent-primary)] underline">
             &ldquo;Entre luzes, alarmes e o silêncio&rdquo;
           </Link>
           , de Bruno Rocha de Lima (UFU, 2026). Não trata autismo como doença e não afirma que a

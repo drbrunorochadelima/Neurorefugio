@@ -98,7 +98,7 @@ export default function RecuperarSenhaPage() {
       )}
 
       <p className="mt-6 text-sm">
-        <Link href="/entrar" className="text-[var(--nr-accent-primary)] hover:underline">
+        <Link href="/entrar" className="text-[var(--nr-accent-primary)] underline">
           Voltar para entrar
         </Link>
       </p>

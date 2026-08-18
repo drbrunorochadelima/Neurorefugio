@@ -285,7 +285,7 @@ export default function AtelieDasCoresPage() {
               <ul className="mt-2 flex flex-col gap-1">
                 {myArtworks.map((a) => (
                   <li key={a.id}>
-                    <button type="button" onClick={() => loadArtwork(a.id)} className="text-sm text-[var(--nr-accent-primary)] hover:underline">
+                    <button type="button" onClick={() => loadArtwork(a.id)} className="text-sm text-[var(--nr-accent-primary)] underline">
                       {a.titulo || "Sem título"}
                     </button>
                   </li>

@@ -34,12 +34,12 @@ export default function PrivacidadePage() {
         <h2 className="mt-2 text-lg font-semibold">Consentimento</h2>
         <p>
           Ao criar conta, você aceita os{" "}
-          <Link href="/termos" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/termos" className="text-[var(--nr-accent-primary)] underline">
             Termos de uso
           </Link>{" "}
           e esta política. Consentimentos para dados sensíveis e telemetria são opcionais e
           separados, e podem ser revistos a qualquer momento em{" "}
-          <Link href="/configuracoes/conta" className="text-[var(--nr-accent-primary)] hover:underline">
+          <Link href="/configuracoes/conta" className="text-[var(--nr-accent-primary)] underline">
             Minha conta
           </Link>
           .
