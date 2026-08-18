@@ -268,4 +268,43 @@ bloquear em uma publicação demonstrativa.
 
 ---
 
+## 2026-08-18 — Fase 8: Biblioteca científica e Área institucional
+
+**Pronto:**
+- `/biblioteca`: 8 conteúdos demonstrativos cobrindo as 5 classificações do §15 (evidência
+  científica, reflexão teórica, experiência autoetnográfica, conteúdo educativo, recomendação
+  institucional) e os eixos luzes/alarmes/silêncio/geral. Busca, filtro por eixo e por
+  classificação. Todos marcados `pendente_revisao` (nenhum é apresentado como já revisado
+  formalmente, conforme exigido). A única referência bibliográfica usada é o DSM-5 (American
+  Psychiatric Association, 2013) — nenhuma citação, DOI ou autor foi inventado; os demais
+  conteúdos não citam estudos específicos para evitar qualquer risco de referência fabricada.
+- `/biblioteca/[slug]`: alternância entre linguagem simples e versão aprofundada, autoria,
+  datas, referências e conteúdos relacionados.
+- `/instituicoes`: mapa sensorial interativo de 8 áreas da UTI (posto de enfermagem, leitos,
+  monitores/bombas, corredores, salas de descanso, passagem de plantão, visita multiprofissional,
+  picos de circulação), cada uma com estímulos classificados (necessário/necessário-ajustável/
+  evitável/depende da pessoa), barreiras, demandas cognitivas, impactos, estratégias de redução de
+  danos e adaptações institucionais.
+- Checklist institucional funcional (10 tópicos do §16) com prioridade, recomendação, responsável,
+  prazo e acompanhamento — avalia o ambiente, nunca o desempenho da pessoa autista — exportável via
+  impressão/PDF do navegador.
+- Corrigido o mesmo padrão de hidratação (carregamento pós-montagem) nas novas páginas públicas
+  que leem dados locais.
+
+**Falta:**
+- Revisão formal por especialistas dos conteúdos da Biblioteca (nenhum pode ser marcado como
+  "revisado" sem esse processo real).
+- Mais conteúdos por eixo/classificação (hoje 8 artigos cobrindo o mínimo exigido).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright sem erros de hidratação. Testar manualmente: filtros da Biblioteca,
+alternância resumo/aprofundado, navegação do mapa sensorial, preenchimento e impressão do
+checklist institucional.
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
