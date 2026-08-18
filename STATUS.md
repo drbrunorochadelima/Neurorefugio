@@ -140,4 +140,50 @@ Pessoal (preencher, cartão resumido, imprimir), contatos de confiança.
 
 ---
 
+## 2026-08-18 — Fase 5: Autorregulação
+
+**Pronto:**
+- `/quero-me-regular`: hub com a pergunta "Que tipo de apoio parece possível agora?" (filtro por
+  tipo de apoio), os 10 recursos do §10 e a seção "Quero apenas ficar aqui" (âncora usada pela
+  página inicial), com o aviso explícito de que nenhum recurso exige olhos fechados, imobilidade,
+  interrupção de stims, contato visual, respiração controlada ou permanência forçada.
+- `/quero-me-regular/pausa`: temporizador de pausa, tela silenciosa (escurece a tela inteira) e
+  contagem visual — os três integrados ao barramento de silêncio do botão "Preciso de calma".
+- `/quero-me-regular/respiracao`: ritmo visual de respiração com durações configuráveis e pausa
+  opcional entre inspirar/expirar (nunca obrigatória).
+- `/quero-me-regular/aterramento`: aterramento sensorial (adaptação do 5-4-3-2-1) e relaxamento
+  muscular progressivo, em passo a passo autoguiado (sem temporizador forçado).
+- `/quero-me-regular/sons`: chuva, ondas, ventilador e ruído marrom **sintetizados no navegador**
+  via Web Audio API (sem arquivos externos), sempre iniciados por ação explícita e bloqueados por
+  padrão até o usuário ativar "sons opcionais" no Passaporte Sensorial.
+- `/quero-me-regular/stimming`: grade tátil ("bolhas") e um fidget de arrastar.
+- `/quero-me-regular/desenho-livre`: tela de desenho com cores calmas, espessura ajustável, limpar
+  e baixar como PNG.
+- `/quero-me-regular/cartoes-de-comunicacao`: criação de cartões, modo apresentação em tela cheia,
+  favoritos.
+- `/quero-me-regular/checklist-corporal`, `/pos-sobrecarga` e `/meditacoes` (1/3/5/10/20 min, em
+  texto, narração opcional via Web Speech API — também condicionada à preferência de som —, imagem
+  estática ou silêncio).
+- Avaliação de utilidade ("ajudou/ajudou parcialmente/não ajudou/piorou/não desejo avaliar") em
+  cada recurso, salva por usuário.
+- Plano Pessoal de Autorregulação já implementado na fase anterior (`/meu-espaco/plano-pessoal`).
+
+**Falta:**
+- Persistência de desenhos livres numa galeria (hoje só baixa o PNG; a galeria completa fica no
+  Ateliê das Cores, fase de games).
+- Locução das meditações usa a voz padrão do navegador (Web Speech API) — não há narração gravada
+  profissionalmente.
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright (hub, pausa, sons, respiração com animação de fase) e captura de tela.
+Testar manualmente também: ativar sons opcionais em Meu Ambiente e ouvir cada som contínuo; testar
+narração das meditações; verificar que o botão "Preciso de calma" interrompe sons/tela
+silenciosa/respiração em andamento.
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
