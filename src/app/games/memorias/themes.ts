@@ -1,0 +1,105 @@
+export interface MemoryItem {
+  id: string;
+  symbol: string;
+  label: string;
+}
+
+export const MEMORY_THEMES: Record<string, { label: string; items: MemoryItem[] }> = {
+  animais: {
+    label: "Animais",
+    items: [
+      { id: "elefante", symbol: "🐘", label: "Elefante" },
+      { id: "coruja", symbol: "🦉", label: "Coruja" },
+      { id: "tartaruga", symbol: "🐢", label: "Tartaruga" },
+      { id: "baleia", symbol: "🐋", label: "Baleia" },
+      { id: "raposa", symbol: "🦊", label: "Raposa" },
+      { id: "borboleta", symbol: "🦋", label: "Borboleta" },
+      { id: "polvo", symbol: "🐙", label: "Polvo" },
+      { id: "urso", symbol: "🐻", label: "Urso" },
+      { id: "gato", symbol: "🐈", label: "Gato" },
+      { id: "coelho", symbol: "🐇", label: "Coelho" },
+      { id: "peixe", symbol: "🐠", label: "Peixe" },
+      { id: "passaro", symbol: "🐦", label: "Pássaro" },
+      { id: "sapo", symbol: "🐸", label: "Sapo" },
+      { id: "caracol", symbol: "🐌", label: "Caracol" },
+      { id: "abelha", symbol: "🐝", label: "Abelha" },
+      { id: "cavalo", symbol: "🐴", label: "Cavalo" },
+      { id: "leao", symbol: "🦁", label: "Leão" },
+      { id: "pinguim", symbol: "🐧", label: "Pinguim" },
+    ],
+  },
+  natureza: {
+    label: "Natureza",
+    items: [
+      { id: "arvore", symbol: "🌳", label: "Árvore" },
+      { id: "montanha", symbol: "⛰️", label: "Montanha" },
+      { id: "onda", symbol: "🌊", label: "Onda" },
+      { id: "folha", symbol: "🍃", label: "Folha" },
+      { id: "flor", symbol: "🌸", label: "Flor" },
+      { id: "sol", symbol: "☀️", label: "Sol" },
+      { id: "lua", symbol: "🌙", label: "Lua" },
+      { id: "nuvem", symbol: "☁️", label: "Nuvem" },
+      { id: "chuva", symbol: "🌧️", label: "Chuva" },
+      { id: "arcoiris", symbol: "🌈", label: "Arco-íris" },
+      { id: "cacto", symbol: "🌵", label: "Cacto" },
+      { id: "cogumelo", symbol: "🍄", label: "Cogumelo" },
+      { id: "folhaoutono", symbol: "🍂", label: "Folha seca" },
+      { id: "neve", symbol: "❄️", label: "Neve" },
+      { id: "vulcao", symbol: "🌋", label: "Vulcão" },
+      { id: "praia", symbol: "🏖️", label: "Praia" },
+      { id: "trevo", symbol: "🍀", label: "Trevo" },
+      { id: "girassol", symbol: "🌻", label: "Girassol" },
+    ],
+  },
+  espaco: {
+    label: "Espaço",
+    items: [
+      { id: "foguete", symbol: "🚀", label: "Foguete" },
+      { id: "planeta", symbol: "🪐", label: "Planeta" },
+      { id: "estrela", symbol: "⭐", label: "Estrela" },
+      { id: "cometa", symbol: "☄️", label: "Cometa" },
+      { id: "luaespaco", symbol: "🌕", label: "Lua cheia" },
+      { id: "galaxia", symbol: "🌌", label: "Galáxia" },
+      { id: "astronauta", symbol: "🧑‍🚀", label: "Astronauta" },
+      { id: "satelite", symbol: "🛰️", label: "Satélite" },
+      { id: "ufo", symbol: "🛸", label: "Nave" },
+      { id: "telescopio", symbol: "🔭", label: "Telescópio" },
+      { id: "sol2", symbol: "🌞", label: "Sol" },
+      { id: "marte", symbol: "🔴", label: "Marte" },
+    ],
+  },
+  tecnologia: {
+    label: "Tecnologia",
+    items: [
+      { id: "notebook", symbol: "💻", label: "Notebook" },
+      { id: "celular", symbol: "📱", label: "Celular" },
+      { id: "robo", symbol: "🤖", label: "Robô" },
+      { id: "bateria", symbol: "🔋", label: "Bateria" },
+      { id: "engrenagem", symbol: "⚙️", label: "Engrenagem" },
+      { id: "grafico", symbol: "📊", label: "Gráfico" },
+      { id: "cabo", symbol: "🔌", label: "Cabo" },
+      { id: "disco", symbol: "💾", label: "Disco" },
+      { id: "impressora", symbol: "🖨️", label: "Impressora" },
+      { id: "camera", symbol: "📷", label: "Câmera" },
+      { id: "relogio", symbol: "⌚", label: "Relógio" },
+      { id: "lampada", symbol: "💡", label: "Lâmpada" },
+    ],
+  },
+  corpoMonitor: {
+    label: "Corpo-monitor",
+    items: [
+      { id: "cabeca", symbol: "🧠", label: "Cabeça" },
+      { id: "coracao", symbol: "❤️", label: "Coração" },
+      { id: "pulmao", symbol: "🫁", label: "Respiração" },
+      { id: "mao", symbol: "✋", label: "Mão" },
+      { id: "olho", symbol: "👁️", label: "Olho" },
+      { id: "orelha", symbol: "👂", label: "Orelha" },
+      { id: "pe", symbol: "🦶", label: "Pé" },
+      { id: "monitor", symbol: "🩺", label: "Monitor" },
+      { id: "alarme", symbol: "🔔", label: "Alarme" },
+      { id: "luz", symbol: "💡", label: "Luz" },
+    ],
+  },
+};
+
+export type MemoryThemeId = keyof typeof MEMORY_THEMES;

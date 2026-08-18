@@ -186,4 +186,50 @@ silenciosa/respiração em andamento.
 
 ---
 
+## 2026-08-18 — Fase 6: Laboratório de Games (estrutura + 4 games prioritários)
+
+**Pronto:**
+- `/games`: hub com a pergunta de intenção (11 opções, filtro client-side), regras comuns visíveis
+  (sem anúncios, sem vidas, sem punição por pausa, sem ranking obrigatório), e lista honesta de
+  "Em desenvolvimento" para os 10 games ainda não implementados (sem botões falsos).
+- Componente `GameIntro` compartilhado: objetivo, duração, dificuldade, sons, movimentos, estímulos,
+  controles e forma de saída antes de cada game; `GameExitBar` com saída imediata em qualquer tela.
+- **Memórias no Meu Ritmo** (`/games/memorias`): 5 temas (animais, natureza, espaço, tecnologia,
+  corpo-monitor), tabuleiros de 2×2 a 6×6, tempo de visualização prévio configurável, sem
+  cronômetro obrigatório, sem punição por erro, navegável por teclado.
+- **Conexões: Combine e Organize** (`/games/conexoes`): 3 modos (emoção/necessidade, sinal
+  corporal/estratégia, estímulo/adaptação), seleção por clique, novas tentativas sem punição.
+- **Ateliê das Cores** (`/games/atelie-das-cores`): 4 modelos gerados proceduralmente (mandala,
+  padrão de grade, corpo-monitor, formas abstratas), pincel/borracha, 3 paletas (livre/pastel/
+  monocromática) + cor personalizada, desfazer/refazer, salvar e continuar depois (galeria privada
+  via `coloring` service), baixar como PNG.
+- **Corpo-Monitor: Plantão em Camadas** (`/games/corpo-monitor-plantao`): versão funcional mínima
+  (modo história + opção de baixo estímulo) com 9 eventos de plantão, escolhas sem certo/errado,
+  parâmetros internos (energia/tensão/sobrecarga/masking) que evoluem, e resumo final completo:
+  curva do corpo-monitor (gráfico acessível), linha do tempo, estímulos principais, momentos de
+  masking, estratégias de comunicação e barreiras institucionais observadas.
+- Progresso salvo por usuário (`game-progress` service) com estrelas/folhas ("Minha Jornada").
+- Avaliação de utilidade em cada game (`ResourceFeedbackWidget`).
+
+**Falta (registrado como expansão futura, ver PLAN.md):**
+- Os demais 10 games do prompt mestre (Entre Luzes/Alarmes/Silêncio, Sala de Controle Sensorial,
+  Meu Ritmo, Jardim, Aquário Sensorial, Constelação de Hiperfocos, Fábrica de Padrões, Rotas de
+  Pausa, Comunicação sem Pressão, Construa uma Instituição Neuroinclusiva).
+- No Plantão em Camadas: modos estratégia/gestão institucional/livre separados (hoje simplificados
+  em um único modo história); no Ateliê das Cores: camadas, espelhamento, zoom, carimbos, texturas,
+  importação de desenho e colaboração autorizada; no Memórias: modos imagem+palavra, som+imagem,
+  baralhos personalizados e compartilhamento moderado; no Conexões: arrastar-e-soltar (hoje é por
+  clique/seleção) e modos adicionais (objeto/função, sequências).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright, sem erros de console: os 4 games jogados do início ao fim (Memórias:
+virar cartas e formar pares; Conexões: combinar todos os pares; Ateliê: colorir regiões da mandala;
+Plantão: completar os 9 eventos e verificar o resumo com gráfico, linha do tempo e barreiras).
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*
