@@ -307,4 +307,52 @@ checklist institucional.
 
 ---
 
+## 2026-08-18 — Fase 9: Pesquisa, painel administrativo e LGPD
+
+**Pronto:**
+- `/pesquisa`: página "Conheça a pesquisa" completa (título, subtítulo, autor, orientação,
+  instituição, problema, objetivos, metodologia, aspectos éticos, limitações, produto
+  técnico-científico, validação planejada) com a declaração obrigatória de que a experiência do
+  pesquisador não representa todas as pessoas autistas e de que a plataforma não substitui
+  atendimento profissional.
+- `/termos`, `/privacidade` e `/acessibilidade`: políticas em linguagem simples, antes ausentes
+  (o cadastro e o rodapé já apontavam para elas).
+- `/seguranca`: página de segurança e crise (§18) — mensagem acolhedora e direta, orientação para
+  buscar ajuda profissional, acesso aos contatos de confiança, sem prometer sigilo absoluto e sem
+  tentar diagnosticar. Contatos oficiais só aparecem se um administrador os confirmar e cadastrar;
+  nenhum número foi inventado — na ausência de contato confirmado, a página aponta para o canal
+  oficial do CVV (cvv.org.br) em vez de citar um número de memória.
+- `/admin`: painel administrativo restrito a contas com papel "administrador", com:
+  `/admin/usuarios` (listar contas, alterar papel), `/admin/moderacao` (aprovar/rejeitar
+  publicações em revisão, resolver denúncias), `/admin/institucional` (cadastrar contatos oficiais
+  confirmados, ver checklists institucionais), `/admin/auditoria` (trilha de auditoria das ações
+  administrativas, sem expor dados sensíveis). Como não há backend real nesta versão, qualquer
+  conta pode assumir o papel de administrador em `/configuracoes/conta`, de forma claramente
+  identificada como recurso demonstrativo.
+- **Bug real corrigido durante o teste**: as páginas do painel administrativo inicializavam seus
+  dados com `useState(() => condição-baseada-em-usuário ? carregar() : [])`; como o usuário ainda
+  está `null` na primeira renderização (por causa da hidratação seguro para SSR), esse padrão
+  travava a página em uma lista vazia permanentemente, mesmo depois do usuário ser reconhecido como
+  administrador. Corrigido em todas as páginas do painel trocando para carregamento reativo via
+  `useEffect` dependente do papel do usuário. Fluxo completo testado de ponta a ponta via
+  Playwright: publicar → moderar → aprovar.
+
+**Falta:**
+- Administração de conteúdos da Biblioteca, games, desenhos/paletas/baralhos, categorias e versões
+  ainda não têm UI própria no painel (dados hoje são seedados via código) — registrado como
+  expansão futura.
+- Métricas anônimas agregadas não implementadas (não há telemetria real nesta versão).
+
+**Como testar:**
+```bash
+npm run lint && npm run build
+npm run dev -- -p 3100
+```
+Testado via Playwright: criar conta → enviar publicação → assumir papel de administrador em
+`/configuracoes/conta` → `/admin/moderacao` mostra a publicação pendente → publicar. Testar
+manualmente: `/admin/usuarios` (trocar papel de outra conta), `/admin/institucional` (adicionar
+contato oficial e ver refletido em `/seguranca`), `/admin/auditoria`.
+
+---
+
 *(As próximas entradas serão adicionadas ao final deste arquivo conforme cada fase for concluída.)*

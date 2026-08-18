@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth/context";
-import { exportUserData } from "@/lib/auth/store";
+import { exportUserData, setUserRole } from "@/lib/auth/store";
 import { TextField } from "@/components/form/TextField";
 
 export default function ContaPage() {
@@ -126,6 +126,42 @@ export default function ContaPage() {
         >
           Exportar meus dados (.json)
         </button>
+      </div>
+
+      <div className="mt-6 rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--nr-text)]">Papel de acesso (modo demonstrativo)</h2>
+        <p className="mt-1 text-sm text-[var(--nr-text-muted)]">
+          Como não há um backend real nesta versão, qualquer conta pode assumir o papel de
+          administrador(a) localmente, apenas para fins de teste do painel administrativo. Papel
+          atual: <strong>{user.role}</strong>.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {user.role !== "administrador" ? (
+            <button
+              type="button"
+              onClick={() => setUserRole(user.id, "administrador")}
+              className="rounded-lg border border-[var(--nr-border)] px-4 py-2 text-sm font-medium text-[var(--nr-text)] hover:bg-[var(--nr-surface-alt)]"
+            >
+              Assumir papel de administrador(a) (demonstrativo)
+            </button>
+          ) : (
+            <>
+              <button
+                type="button"
+                onClick={() => setUserRole(user.id, "usuario")}
+                className="rounded-lg border border-[var(--nr-border)] px-4 py-2 text-sm font-medium text-[var(--nr-text)] hover:bg-[var(--nr-surface-alt)]"
+              >
+                Voltar a usuário(a) comum
+              </button>
+              <Link
+                href="/admin"
+                className="rounded-lg bg-[var(--nr-accent-primary)] px-4 py-2 text-sm font-semibold text-[var(--nr-text-on-accent)]"
+              >
+                Abrir painel administrativo
+              </Link>
+            </>
+          )}
+        </div>
       </div>
 
       <div className="mt-6 rounded-2xl border border-[var(--nr-danger)]/40 bg-[var(--nr-surface)] p-6">

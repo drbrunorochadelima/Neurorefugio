@@ -37,6 +37,11 @@ export function AcademicFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/seguranca" className="text-[var(--nr-accent-primary)] hover:underline">
+                Segurança
+              </Link>
+            </li>
+            <li>
               <Link href="/privacidade" className="text-[var(--nr-accent-primary)] hover:underline">
                 Privacidade
               </Link>

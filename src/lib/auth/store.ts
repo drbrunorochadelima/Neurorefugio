@@ -76,6 +76,15 @@ export function getUser(id: string): User | undefined {
   return usersCollection.get(id);
 }
 
+export function listAllUsers(): User[] {
+  return usersCollection.list();
+}
+
+export function setUserRole(userId: string, role: UserRole): void {
+  usersCollection.update(userId, { role });
+  if (getSessionUserId() === userId) notifySessionChange();
+}
+
 export async function signUp(input: {
   email: string;
   password: string;

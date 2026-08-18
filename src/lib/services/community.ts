@@ -99,6 +99,10 @@ export function listPublishedPosts(): ForumPost[] {
     .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 }
 
+export function listPostsForModeration(): ForumPost[] {
+  return postsCollection.list().filter((p) => p.status === "em_revisao");
+}
+
 export function listMyPosts(userId: string): ForumPost[] {
   return postsCollection.list().filter((p) => p.authorId === userId);
 }
